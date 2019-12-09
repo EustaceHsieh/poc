@@ -1,8 +1,7 @@
-package tw.com.iisi.fgs.demo.bo;
+package tw.com.iisi.fgs.demo.fgsdonation.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -97,7 +96,7 @@ public class Donor implements Serializable {
     
     @Id
     @Column(name = "DonorKey")
-    private java.lang.Integer id;
+    private java.lang.Integer donorKey;
     
     @Column(name = "Version")
     private java.lang.Integer version;
@@ -147,14 +146,6 @@ public class Donor implements Serializable {
     @Column(name = "Address")
     private java.lang.String address;
 
-
-	public java.lang.Integer getId() {
-		return id;
-	}
-
-	public void setId(java.lang.Integer id) {
-		this.id = id;
-	}
 
 	public java.lang.Integer getVersion() {
 		return version;
@@ -282,6 +273,14 @@ public class Donor implements Serializable {
 
 	public void setAddress(java.lang.String address) {
 		this.address = address;
+	}
+
+	public java.lang.Integer getDonorKey() {
+		return donorKey;
+	}
+
+	public void setDonorKey(java.lang.Integer donorKey) {
+		this.donorKey = donorKey;
 	}
    
 }

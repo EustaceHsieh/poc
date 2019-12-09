@@ -10,13 +10,24 @@ public class CosummerController {
 
 	@Autowired
 	private RestTemplate restTemplate;
-	
+/*	
 	@GetMapping("client")
 	public String query() {
-		String url = "http://fgs-donor-service/api/donors/?page=3";
+		String url = "http://fgs-donor-service/api/importDonations/";
 //		String url = "http://fgs-donor-service/api/donors/";
 //		String url = "http://fgs-donor-service/api/donors/?donorSN=PD40200070815000095";
 		
 		return restTemplate.getForEntity(url, String.class).getBody();
 	}
+*/	
+
+	@GetMapping("client")
+	public String query() {
+		String url = "http://fgs-donor-service/api/donorinfos/?type=1&name=DD40100070101000001  ";
+//		String url = "http://fgs-donor-service/api/donors/";
+//		String url = "http://fgs-donor-service/api/donors/?donorSN=PD40200070815000095";
+		
+		return restTemplate.getForEntity(url, String.class).getBody();
+	}
+	
 }
