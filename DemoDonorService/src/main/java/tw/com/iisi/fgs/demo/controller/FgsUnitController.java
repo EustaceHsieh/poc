@@ -17,7 +17,7 @@ import tw.com.iisi.fgs.demo.fgsdonation.entity.FgsUnitMapping;
 import tw.com.iisi.fgs.demo.service.FgsUnitMappingService;
 import tw.com.iisi.fgs.demo.service.FgsUnitService;
 
-@CrossOrigin(value="http://localhost:8080", maxAge=180)
+/*@CrossOrigin(value="http://localhost:8080", maxAge=180)*/
 @RestController
 @RequestMapping("/api")
 public class FgsUnitController {
@@ -26,14 +26,14 @@ public class FgsUnitController {
     @Autowired
     private FgsUnitMappingService fgsUnitMappingService;
 
-    @GetMapping("/fgsunits/")
+    @GetMapping("/getFgsUnitNameById/")
     public ResponseEntity<String> getFgsUnitNameByID(
     		@RequestParam(value = "fgsUnitID", defaultValue = "") String fgsUnitID)
         throws ResourceNotFoundException {
     	return ResponseEntity.ok().body(fgsUnitService.getFgsUnitNameByID(fgsUnitID));
     }
 
-    @PostMapping("/savefgsunitmappings/")
+    @PostMapping("/saveFgsUnitMappings/")
     public void saveFgsUnits(
     		@RequestBody List<FgsUnitMapping> fgsUnitMappings)
         throws ResourceNotFoundException {
