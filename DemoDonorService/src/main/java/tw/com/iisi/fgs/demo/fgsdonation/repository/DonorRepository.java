@@ -13,7 +13,7 @@ import tw.com.iisi.fgs.demo.fgsdonation.entity.Donor;
 import tw.com.iisi.fgs.demo.fgsdonation.projection.DonorInfo;
 
 @Repository
-public interface DonorRepository extends PagingAndSortingRepository<Donor, Integer> {
+public interface DonorRepository extends PagingAndSortingRepository<Donor, Integer>, DynamicDonorRepository {
 
 	Page<Donor> findAll(Pageable pageable);
 	Page<Donor> findByDonorSN(String donorSN, Pageable pageable);

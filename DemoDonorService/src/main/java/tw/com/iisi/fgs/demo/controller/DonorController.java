@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import tw.com.iisi.fgs.demo.fgsdonation.entity.Donor;
 import tw.com.iisi.fgs.demo.fgsdonation.projection.DonorInfo;
 import tw.com.iisi.fgs.demo.personlib.entity.ImportDonation;
+import tw.com.iisi.fgs.demo.service.CrossDatabaseService;
 import tw.com.iisi.fgs.demo.service.DonorService;
 
 @RestController
@@ -20,15 +21,28 @@ import tw.com.iisi.fgs.demo.service.DonorService;
 public class DonorController {
     @Autowired
     private DonorService donorService;
+    @Autowired
+    private CrossDatabaseService crossDatabaseService;
 
-/*
-    @GetMapping("/donors/")
-    public ResponseEntity<Iterable<Donor>> getDonors()
+
+    @GetMapping("/multidbtest/")
+    public void testMultiDBs()
         throws ResourceNotFoundException {
-    	Iterable<Donor> employee = donorService.list();
-        return ResponseEntity.ok().body(employee);
+    	crossDatabaseService.insertIntoMultipleDBs();
     }
-*/
+
+    @GetMapping("/multidbtestfailed/")
+    public void testMultiDBsFailed()
+        throws ResourceNotFoundException {
+    	crossDatabaseService.insertIntoMultipleDBsFailed();
+    }
+
+    @GetMapping("/donornames/")
+    public ResponseEntity<List<String>> getDonorNames()
+        throws ResourceNotFoundException {
+        return ResponseEntity.ok().body(donorService.listDonorNameByConditions());
+    }
+
 /*    @GetMapping("/donors/{donorSN}")*/
     @GetMapping("/donors/")
     public ResponseEntity<Iterable<Donor>> getDonorBySN(

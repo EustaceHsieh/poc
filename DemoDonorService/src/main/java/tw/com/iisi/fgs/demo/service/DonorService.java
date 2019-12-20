@@ -1,6 +1,8 @@
 package tw.com.iisi.fgs.demo.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -20,6 +22,15 @@ public class DonorService {
     private DonorRepository donorRepository;
     @Autowired
     private ImportDonationRepository impoerDonaationRepository;
+	 
+    public List<String> listDonorNameByConditions() {
+    	Map<String, Object> conds = new HashMap<String, Object>();
+    	
+    	conds.put("TelAreaNoHome", "02");
+    	conds.put("ZipCode", "110");
+    	
+        return donorRepository.getNamesByConds(conds);
+    }
 	 
     public Iterable<Donor> listDonor() {
         return donorRepository.findAll();

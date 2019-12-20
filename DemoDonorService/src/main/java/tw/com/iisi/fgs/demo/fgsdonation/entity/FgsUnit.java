@@ -57,7 +57,6 @@ public abstract class FgsUnit implements Serializable {
     
     // constructors
     public FgsUnit() {
-        initialize();
     }
 
     /**
@@ -65,7 +64,6 @@ public abstract class FgsUnit implements Serializable {
      */
     public FgsUnit(java.lang.Integer id) {
         this.setFgsUnitKey(id);
-        initialize();
     }
 
     /**
@@ -84,7 +82,6 @@ public abstract class FgsUnit implements Serializable {
         this.setTrustAccount(trustAccount);
         this.setDonGenerated(isDonGenerated);
         this.setCollectionByAcc(isCollectionByAcc);
-        initialize();
     }
 
     protected void initialize() {
