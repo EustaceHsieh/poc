@@ -18,3 +18,17 @@
 /fgs.gateway/target
 
 
+/fgs.apiservice/*.project
+/fgs.apiservice/*.classpath
+/fgs.commons/.project
+/fgs.commons/target
+/fgs.commons/.classpath
+/fgs.eurekaserver/.project
+/fgs.eurekaserver/target
+/fgs.eurekaserver/.classpath
+/fgs.fgsweb/.project
+/fgs.fgsweb/target
+/fgs.fgsweb/.classpath
+/fgs.gateway/.project
+/fgs.gateway/target
+/fgs.gateway/.classpath
