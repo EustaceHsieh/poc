@@ -12,4 +12,6 @@ public interface FgsUnitRepository extends PagingAndSortingRepository<FgsUnit, I
 
     @Query(value = "SELECT FgsUnitName FROM FgsUnit WHERE FgsUnitID = :fgsUnitID", nativeQuery = true)
     String findByDonorName(@Param("fgsUnitID") String fgsUnitID);
+    
+    FgsUnit getByFgsUnitID(String fgsUnitID);
 }
