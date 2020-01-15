@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * This is an object that contains data related to the FgsUnit table. Do not
@@ -87,6 +88,7 @@ public class FgsUnit implements Serializable {
     protected void initialize() {
     }
 
+    @Transient
     private int hashCode = Integer.MIN_VALUE;
 
     @Id
@@ -396,6 +398,7 @@ public class FgsUnit implements Serializable {
     }
 
     @Override
+    @Transient
     public int hashCode() {
         if (Integer.MIN_VALUE == this.hashCode) {
             if (null == this.getFgsUnitKey())
@@ -409,6 +412,7 @@ public class FgsUnit implements Serializable {
     }
 
     @Override
+    @Transient
     public String toString() {
         return super.toString();
     }
