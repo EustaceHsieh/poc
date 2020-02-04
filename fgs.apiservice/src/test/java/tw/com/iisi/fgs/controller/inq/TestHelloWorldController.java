@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import java.nio.charset.Charset;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;
@@ -18,8 +18,8 @@ import tw.com.iisi.fgs.controller.AbstractTest;
 
 class TestHelloWorldController extends AbstractTest {
 
-	@Before
-	public void setUp() {
+	//@BeforeAll
+	public  void setUp() {
 		super.setUp();
 	}
 
