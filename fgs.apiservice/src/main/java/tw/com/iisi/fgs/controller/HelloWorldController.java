@@ -1,5 +1,7 @@
 package tw.com.iisi.fgs.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,11 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import antlr.collections.List;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import tw.com.iisi.fgs.bo.fgsdonation.FgsUnit;
+import tw.com.iisi.fgs.commons.util.IResult;
+import tw.com.iisi.fgs.commons.util.MessageResult;
 import tw.com.iisi.fgs.service.FgsUnitService;
 
 @RestController
@@ -37,6 +42,19 @@ public class HelloWorldController {
 			@RequestParam(value = "fgsUnitID", defaultValue = "")String fgsUnitID) {
 
 		return new ResponseEntity<FgsUnit>(fgsUnitService.getFgsUnitByFgsUnitID(fgsUnitID), HttpStatus.OK);
+
+	}
+	
+	@GetMapping("/getFgsUnit2")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "取得單位資料") })
+	@Operation(summary ="取得單位資料", description = "描述：取得單位資料")
+	public ResponseEntity<IResult<FgsUnit>> getTest(
+			@RequestParam(value = "fgsUnitID", defaultValue = "")String fgsUnitID) {
+		
+		IResult<FgsUnit> result = new MessageResult<FgsUnit>();
+		result.setResult(fgsUnitService.getFgsUnitByFgsUnitID(fgsUnitID));
+		
+		return new ResponseEntity<IResult<FgsUnit>>(result, HttpStatus.OK);
 
 	}
 
