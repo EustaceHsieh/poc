@@ -26,4 +26,4 @@ The following guides illustrate how to use some features concretely:
 
 ### Swagger-UI URL
 
-http://127.0.0.1:8098/swagger-ui/index.html
+http://127.0.0.1:8098/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/
